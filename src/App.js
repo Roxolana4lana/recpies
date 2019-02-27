@@ -7,22 +7,19 @@ import { Route, BrowserRouter } from 'react-router-dom';
 
 
 class App extends Component {
-
   render() {
+
     return (
       <BrowserRouter>
-     <React.Fragment>
-     <Route exact path='/' component={Main}></Route>
+        <React.Fragment>
+        <Route exact path='/' component={Main}></Route>
           <Route exact path='/seemore' component={ShowAll}></Route>
           <Route exact path='/add' component={AddRecip}></Route>
           <Route exact path='/seemine' component={ShowMyRecipes}></Route>
-  
-  
-      </React.Fragment>
+        </React.Fragment>
       </BrowserRouter>
     )
   }
 }
-
 
 export default App;

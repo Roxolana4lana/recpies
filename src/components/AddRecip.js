@@ -4,31 +4,33 @@ import NavBar from './NavBar'
 
 
 class AddRecip extends Component {
-
     state = {
         title: '',
         components: [{ name: '', amount: '' }],
         directions: ''
     }
+
     handleAdd = (e) => {
         e.preventDefault();
         this.setState((prevState) => ({
             components: [...prevState.components, { name: "", amount: "" }],
         }));
     }
-    handleChangeIngredients = e => {
 
+    handleChangeIngredients = e => {
         let components = [...this.state.components]
         components[e.target.dataset.id][e.target.name] = e.target.value
         this.setState({
             components
         })
     }
+
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+
     handleRemove = index => {
         this.state.components.splice(index, 1)
         this.setState({ components: this.state.components })
@@ -41,12 +43,11 @@ class AddRecip extends Component {
             components: this.state.components,
             directions: this.state.directions
         }
+
         axios.post(`http://127.0.0.1:8000/recipes/`, obj)
             .then(res =>
                 console.log(res.data)
             )
-        //  .then(window.location.reload())
-
         this.setState({
             title: '',
             components: [{ name: '', amount: '' }],
@@ -54,12 +55,10 @@ class AddRecip extends Component {
         })
     }
 
-
     render() {
         return (
-         
             <div className='addNew'>
-            <NavBar/>
+                <NavBar/>
                 <form onSubmit={this.handleSubmit} className='addForm'>
                     <div className='ElementForm'>
                         <label> The title </label>
@@ -68,19 +67,16 @@ class AddRecip extends Component {
                             value={this.state.title}
                             onChange={this.handleChange}
                             name='title'
-                            className='title'
-                          
-                        />
+                            className='title'/>
                     </div>
                     <div className='ElementForm'>
-                        <label style={{color: 'white'}}> <h4>Ingredients:</h4> </label>
-                       
+                        <label style={{color: 'white'}}> <h4>Ingredients:</h4> </label> 
                         {this.state.components.map((component, index) => {
-
                             return (
                                 <span key={index}>
-                                   <div >
+                                   <div>
                                     <label > Name </label>
+
                                         <input
                                             type='text'
                                             value={this.state.components[index].name}
@@ -88,13 +84,11 @@ class AddRecip extends Component {
                                             name="name"
                                             className="name"
                                             id={index}
-                                            data-id={index}
-                                          
-                                        />
-                                        </div>
-                                  
-                                        <div className='ElementForm'>
+                                            data-id={index}/>
+                                    </div>   
+                                    <div className='ElementForm'>
                                         <label >Amount </label>
+
                                         <input
                                             type='text'
                                             value={this.state.components[index].amount}
@@ -102,36 +96,25 @@ class AddRecip extends Component {
                                             name="amount"
                                             className="amount"
                                             id={index}
-                                            data-id={index}
-                                          
-                                           
-                                        />
-                                   
+                                            data-id={index}/>
+                                
                                         <button className='one' onClick={() => this.handleRemove(index)}>X</button>
                                         <button onClick={(e) => { this.handleAdd(e) }}>Add</button>
-                                        </div></span> 
+                                    </div>
+                                </span> 
                             )
                         })}
-                        
-                        
-                      
                     </div>
-                    
-
-
                     <div className='ElementForm'>
-                      
                         <label> Directions </label>
+
                         <input
                             type='text'
                             value={this.state.directions}
                             onChange={this.handleChange}
                             name='directions'
-                            className='directions'
-                           
-                        />
+                            className='directions'/>
                     </div>
-
                     <button style={{float:'left'}}>Save</button>
                 </form>
             </div>
@@ -139,10 +122,4 @@ class AddRecip extends Component {
     }
 }
 
-
 export default AddRecip;
-
-
-
-
-
