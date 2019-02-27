@@ -1,0 +1,505 @@
+$myFont:'Miss Fajardose', cursive;
+$breakpoints: (
+	s: 312px,
+
+	m: 696px,
+
+	l: 1180px
+);
+@mixin breakpoint( $breakpoint ) {
+    @if map-has-key( $breakpoints, $breakpoint ) {
+        @media ( min-width: #{ map-get( $breakpoints, $breakpoint ) } ) {
+            @content;
+        }
+    } @else if type_of( $breakpoint ) == number and unit( $breakpoint ) == px or unit( $breakpoint ) == em or unit( $breakpoint ) == rem {
+        @media (min-width: $breakpoint ) {
+            @content;
+        }
+    } @else {
+        @warn "No value could be retrieved from `#{$breakpoint}`. "
+               + "It is either not defined in the `$breakpoints` map, or it is an invalid number of px, em, or rem.";
+    }
+}
+
+@mixin Background{
+ background-image: url(./img2.jpeg);
+      opacity: 0.8;
+     width: 100vw;
+     height: 100vh;
+     background-position: center;
+   
+     text-align: center;
+}
+@mixin theButton{
+-moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100));
+	background:-moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100',GradientType=0);
+  opacity: 1;
+    background-color:#fe1a00;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:2rem;
+	font-weight:bold;
+	display: inline-block;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #b23e35;
+    padding:1rem 3.5rem;
+  // padding: 0.5rem 1rem;
+}
+@mixin theButtonH{
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ce0100), color-stop(1, #fe1a00));
+	background:-moz-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+	background:-webkit-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+	background:-o-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+	background:-ms-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+	background:linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce0100', endColorstr='#fe1a00',GradientType=0);
+	background-color:#ce0100;
+}
+@mixin myInput{
+     -moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe190052), color-stop(1, #ce000079));
+	background:-moz-linear-gradient(top, #fe190052 5%, #ce000079 100%);
+	background:-webkit-linear-gradient(top, #fe190052 5%, #ce000079 100%);
+	background:-o-linear-gradient(top, #fe190052 5%, #ce000079 100%);
+	background:-ms-linear-gradient(top, #fe190052 5%, #ce000079 100%);
+	background:linear-gradient(to bottom, #fe190052 5%, #ce000079 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe190052', endColorstr='#ce000079',GradientType=0);
+	background-color:#fe190052;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:2rem;
+	font-weight:bold;
+    // float: right;
+   
+	text-decoration:none;
+    text-shadow:0px 1px 0px #b23e35;
+    padding:1rem 3.5rem;
+}
+@mixin NavElement{
+     -moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe190028), color-stop(1, #ce000049));
+	background:-moz-linear-gradient(top, #fe190028 5%, #ce000049 100%);
+	background:-webkit-linear-gradient(top, #fe190028 5%, #ce000049 100%);
+	background:-o-linear-gradient(top, #fe190028 5%, #ce000049 100%);
+	background:-ms-linear-gradient(top, #fe190028 5%, #ce000049 100%);
+	background:linear-gradient(to bottom, #fe190028 5%, #ce000049 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe190028', endColorstr='#ce000049',GradientType=0);
+	background-color:#fe190028;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:2rem;
+	font-weight:bold;
+    // float: right;
+   
+	text-decoration:none;
+    text-shadow:0px 1px 0px #b23e35;
+    padding:1rem 2.5rem;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 0.62rem;
+}
+body{
+    font-family: 'Lora', serif;
+}
+.main{
+    background-image: url(./header.jpeg);
+   width: 100vw;
+   height: 100vh;
+   margin:0 auto;
+   text-align: center;
+
+}
+
+.navigation{
+   // display: inline-block;
+    ul{
+         // display: inline-block;
+ list-style: none;
+ font-size: 3rem;
+margin: 0 auto;
+li{
+   // display: inline-block;  
+//    margin: 1rem 5rem;
+//   margin: 1rem auto;
+// display: block;
+//width:35rem;
+
+}
+
+ a{
+@include theButton();
+ &:hover{
+@include theButtonH();
+ }
+ &:active{
+     position:relative;
+ }
+ }
+    }
+}
+.addNew{
+  @include Background();
+height: 100vh;
+ overflow: scroll;
+   
+     .addForm{
+         @include breakpoint(s){
+  width:95vw;
+   margin: 0 auto;
+         }
+         @include breakpoint(m){
+             width:40vw;
+              margin: 7rem auto;
+         }
+          @include breakpoint(l){
+             width:28vw; 
+              margin: 10rem auto; 
+         }
+         background-color: rgba(228, 222, 222, 0.171);
+         height: 60vh;
+         font-size:2.5rem;
+         font-weight: bold;
+       
+         button{
+             @include theButton();
+             
+              &:hover{
+@include theButtonH();
+ }
+         }
+ 
+     }
+}
+.name,
+.title,
+.amount,
+.directions{
+   @include myInput();
+    // padding: 10rem 0;
+    display: block;
+}
+// .amount{
+//     right:0;
+// }
+.ElementForm{
+
+  // margin:2rem;
+  text-align: left;
+ 
+}
+
+
+//end of the Add Form
+.one{
+   text-align: center;
+}
+.search{
+     @include myInput();
+        
+}
+.FindMore
+{
+@include Background();
+}
+.FindNew{
+    @include myInput(); 
+}
+.FindButton{
+@include theButton();
+             	display:inline !important;
+              &:hover{
+@include theButtonH();
+              }
+}
+.ShowMine{
+@include Background();
+height: 100vh;
+ overflow: scroll;
+}
+
+.MyRecipes{
+     @include breakpoint(s){
+
+  grid-template-columns: auto;
+
+     }
+     @include breakpoint(m){
+         grid-template-columns: auto auto;
+     }
+      @include breakpoint(l){
+  grid-template-columns: auto auto auto;
+      }
+    margin-top: 3rem;
+    display: grid;
+
+ grid-gap: 0.5rem;
+  padding:1rem;
+ 
+}
+.RecipeOne{
+    @include breakpoint(s){
+        width:95vw;
+    }
+    @include breakpoint(m){
+        width:45vw;
+    }
+   @include breakpoint(l){
+  width: 33vw;
+   }
+  background-color: rgba(175, 166, 166, 0.411);
+   opacity: 1;
+
+  height:20vh;
+  overflow: scroll;
+  position: relative;
+  h1{
+        text-transform: uppercase;
+    font-weight: 900;
+    font-size:2rem;
+
+   color: rgb(100, 7, 7);
+  }
+  .delete{
+      @include theButton();
+                 padding:0.2rem 0.6rem;
+             position: absolute;
+             bottom:0;
+             right:0;
+              &:hover{
+@include theButtonH();
+              }
+  }
+}
+
+//show all
+.FindMore
+{
+@include Background();
+height: 100vh;
+ overflow: scroll;
+ opacity:0.9;
+}
+.ShowAll{
+    @include breakpoint(s){
+ grid-template-columns: auto;
+    }
+     @include breakpoint(l){
+         grid-template-columns: auto auto;
+    }
+ margin-top: 3rem;
+    display: grid;
+ 
+ grid-gap: 0.5rem;
+  padding:1rem;
+}
+.RecipeOneNew{
+     @include breakpoint(s){
+ width: 85vw;
+  height:40vh;
+    }
+     @include breakpoint(l){
+     width: 49vw;
+  height:32vh;
+    }
+ background-color: rgba(143, 136, 136, 0.562);
+   opacity: 1;
+
+  overflow: hidden;
+  position: relative;
+img{
+     @include breakpoint(s){
+  width: 45%;
+    }
+     @include breakpoint(l){
+  width: 40%;
+    }
+    position: absolute;
+    top:0;
+    left:0;
+  
+   
+}
+h3{
+  top:2rem;
+  right: 2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size:2rem;
+   position: absolute;
+   color: rgb(100, 7, 7);
+}
+  .RecipeLink{
+      @include theButton();
+                 padding:0.2rem 0.6rem;
+             position: absolute;
+             bottom:1rem;
+             right:0; 
+  }
+}
+
+.navigation{
+    ul
+    {
+    li
+    {
+
+		@include breakpoint(s) {
+			  margin: 1rem auto;
+display: block;	
+		}
+		@include breakpoint(m) {
+			  margin: 1rem auto;
+display: block;
+		}
+		@include breakpoint(l) {
+            display: inline-block;
+            margin: 1rem 5rem;
+        }
+    }}
+}
+// .mainTitle{
+//       font-family: $myFont;
+//       letter-spacing: 1rem;
+//     //  text-shadow: 0.5rem 0.5rem rgba(56, 54, 54, 0.342);
+//    font-size: 8rem;
+
+//   }
+//  .quotes{
+//        font-family: $myFont;  
+//        font-size: 6rem;
+//        text-align: right;
+//        margin-right: 9rem;
+//        margin-top: 9rem;
+//        font-weight: bold;
+//   }
+  .quotes{
+       @include breakpoint(s){
+           font-family: $myFont;  
+       font-size: 6rem;
+      // text-align: right;
+      text-align: center;
+       margin-top: 1rem;
+       font-weight: bold;
+       }
+       @include breakpoint(l){
+           font-family: $myFont;  
+       font-size: 6rem;
+       text-align: right;
+       margin-right: 9rem;
+       margin-top: 9rem;
+       font-weight: bold;
+       }
+  }
+  .NavBar{
+        @include breakpoint(s){
+            width: 100vw;
+background-color: rgba(178, 61, 53, 0.068);
+height: 7rem;
+   ul{
+ list-style: none;
+ font-size: 1rem;
+ float: right;
+li{
+    display: inline-block;  
+    margin: 0 0.2rem; 
+}
+ a{
+@include NavElement();
+padding: 0.5rem .4rem;
+font-size: 1.5rem;
+ &:hover{
+@include theButtonH();
+ }
+ &:active{
+     position:relative;
+ }
+ }
+    } 
+
+        }
+         @include breakpoint(l){
+width: 100vw;
+background-color: rgba(178, 61, 53, 0.068);
+height: 7rem;
+   ul{
+ list-style: none;
+ font-size: 2rem;
+ float: right;
+li{
+    display: inline-block;  
+    margin: 1rem 0.2rem; 
+}
+ a{
+@include NavElement();
+padding: 1rem 1rem;
+ &:hover{
+@include theButtonH();
+ }
+ &:active{
+     position:relative;
+ }
+ }
+    } 
+}
+         }
+
+.mainTitle {
+     @include breakpoint(s){
+ font-family: $myFont;
+      letter-spacing: .2rem;
+    //  text-shadow: 0.5rem 0.5rem rgba(56, 54, 54, 0.342);
+   font-size: 5rem;
+    }
+  
+     @include breakpoint(m){
+           font-family: $myFont;
+      letter-spacing: 1rem;
+    //  text-shadow: 0.5rem 0.5rem rgba(56, 54, 54, 0.342);
+   font-size: 8rem;
+    }
+    h1{
+    @include breakpoint(s){
+padding-top:2rem;
+    }
+  
+     @include breakpoint(m){
+           padding-top:15rem;
+    margin-bottom:1rem;
+    }
+}
+}
