@@ -101,8 +101,8 @@ class AddRecip extends Component {
                                             id={index}
                                             data-id={index}/>
                                 
-                                        <button className='one' onClick={() => this.handleRemove(index)}>X</button>
-                                        <button onClick={(e) => { this.handleAdd(e) }}>Add</button>
+                                        <button className='one' type='button' onClick={() => this.handleRemove(index)}>X</button>
+                                        <button type='button' onClick={(e) => { this.handleAdd(e) }}>Add</button>
                                     </div>
                                 </span> 
                             )
