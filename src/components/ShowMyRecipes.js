@@ -21,9 +21,12 @@ export default class ShowMyRecipes extends Component {
             recepies:res.data,
             isL:true
         }))
-    }
+        .catch((error) => {
+        console.log(error)
+            })
+        }
 
-    handleUserInput=searchTerm=>{
+    handleUserInput = searchTerm => {
         this.setState({
             filterText:searchTerm
         })
