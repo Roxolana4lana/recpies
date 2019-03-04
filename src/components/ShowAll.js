@@ -15,17 +15,20 @@ export default class ShowAll extends Component {
         }
     }
 
-    SeeRec=e=>{
-        e.preventDefault();
+    SeeRec = e => {
+        e.preventDefault()
         let word=this.state.keyWord
         axios.get(`https://www.food2fork.com/api/search?key=${keyApi}&q=${word}&page=2`)
         .then(res=>this.setState({
             recip: res.data.recipes,
             isL:true
         }))
+        .catch((err => {
+          console.log(err)
+        }))
     }
 
-    handleChange=e=>{
+    handleChange = e => {
       this.setState({
       keyWord:e.target.value
       })
