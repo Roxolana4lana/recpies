@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 
 export default class Search extends Component {
 
-    handleChange=e=>{
+    handleChange = e => {
         this.props.onUserInput(e.target.value)
     }
 
