@@ -10,11 +10,11 @@ class AddRecip extends Component {
         directions: ''
     }
 
-    handleAdd = (e) => {
-        e.preventDefault();
+    handleAdd = e => {
+        e.preventDefault()
         this.setState((prevState) => ({
-            components: [...prevState.components, { name: "", amount: "" }],
-        }));
+            components: [...prevState.components, { name: "", amount: "" }]
+        }))
     }
 
     handleChangeIngredients = e => {
@@ -37,7 +37,7 @@ class AddRecip extends Component {
     }
 
     handleSubmit = e => {
-        e.preventDefault();
+        e.preventDefault()
         const obj = {
             title: this.state.title,
             components: this.state.components,
@@ -48,12 +48,15 @@ class AddRecip extends Component {
             .then(res =>
                 console.log(res.data)
             )
-        this.setState({
-            title: '',
-            components: [{ name: '', amount: '' }],
-            directions: ''
-        })
-    }
+            .catch((err) => {
+                console.log(err)
+            })
+            this.setState({
+                title: '',
+                components: [{ name: '', amount: '' }],
+                directions: ''
+            })
+        }
 
     render() {
         return (
@@ -70,7 +73,7 @@ class AddRecip extends Component {
                             className='title'/>
                     </div>
                     <div className='ElementForm'>
-                        <label style={{color: 'white'}}> <h4>Ingredients:</h4> </label> 
+                        <label > <h4>Ingredients:</h4> </label> 
                         {this.state.components.map((component, index) => {
                             return (
                                 <span key={index}>
