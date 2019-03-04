@@ -1,8 +1,8 @@
 import React from 'react'
-import {Link, withRouter} from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 
-const Navigation = ()=>{
+const Navigation = () => {
     return(
         <div className="navigation">
             <ul>
