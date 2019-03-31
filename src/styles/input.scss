@@ -22,24 +22,23 @@ $breakpoints: (
 }
 
 @mixin Background{
- position: relative;
-     text-align: center;
-     // height: 100vh;
+    position: relative;
+    text-align: center;
    &:after{
-       content:'';
-       opacity:0.6;
-       position: fixed;
-       top:0;
-       left:0;
-background-image: url(./header.jpeg);
-background-color: pink;
-background-size: cover;
-   width: 100vw;
-   height: 100vh;
-   margin:0 auto;
-   text-align: center;
-   z-index:-1;
-   overflow: scroll;
+        content:'';
+        opacity:0.6;
+        position: fixed;
+        top:0;
+        left:0;
+        background-image: url(./header.jpeg);
+        background-color: pink;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+        margin:0 auto;
+        text-align: center;
+        z-index:-1;
+        overflow: scroll;
    }
 }
 @mixin theButton{
@@ -47,18 +46,17 @@ background-size: cover;
 	-webkit-box-shadow:inset 0px 1px 0px 0px rgba(83, 42, 70, 0.404);
 	box-shadow:inset 0px 1px 0px 0px rgba(83, 42, 70, 0.404);
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #9E8997), color-stop(1, #523247));
-	background:-moz-linear-gradient(top, #9E8997 5%, #523247 100%);
-	background:-webkit-linear-gradient(top, #9E8997 5%, #523247 100%);
-	background:-o-linear-gradient(top, #9E8997 5%, #523247 100%);
-	background:-ms-linear-gradient(top, #9E8997 5%, #523247 100%);
-	background:linear-gradient(to bottom, #9E8997 5%, #523247 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9E8997', endColorstr='#523247',GradientType=0);
+	background:-moz-linear-gradient(top,  rgba(204, 146, 185, 0.562) 5%, #52324777 100%);
+	background:-webkit-linear-gradient(top,  rgba(204, 146, 185, 0.562) 5%, #52324777 100%);
+	background:-o-linear-gradient(top,  rgba(204, 146, 185, 0.562) 5%, #52324777 100%);
+	background:-ms-linear-gradient(top,  rgba(204, 146, 185, 0.562) 5%, #52324777 100%);
+	background:linear-gradient(to bottom,  rgba(204, 146, 185, 0.562) 5%, #52324777 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=' rgba(204, 146, 185, 0.562)', endColorstr='#52324777',GradientType=0);
   opacity: 1;
-    background-color:#9E8997;
+    background-color: rgba(204, 146, 185, 0.562);
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
 	border-radius:6px;
-	// border:1px solid #311227;
 	display:block;
 	cursor:pointer;
 	color:#ffffff;
@@ -69,11 +67,11 @@ background-size: cover;
 	text-decoration:none;
     text-shadow:0px 1px 0px rgba(83, 42, 70, 0.404);
     padding:1rem 3.5rem;
-  // padding: 0.5rem 1rem;
+    outline: none;
 }
 
 @mixin theButtonH{
-        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #523247), color-stop(1, #9E8997));
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #523247), color-stop(1, #9E8997));
 	background:-moz-linear-gradient(top, #523247 5%, #9E8997 100%);
 	background:-webkit-linear-gradient(top, #523247 5%, #9E8997 100%);
 	background:-o-linear-gradient(top, #523247 5%, #9E8997 100%);
@@ -104,7 +102,6 @@ background-size: cover;
 	font-family:Arial;
 	font-size:2rem;
 	font-weight:bold;
-    // float: right;
    outline: none;
 	text-decoration:none;
     text-shadow:0px 1px 0px rgba(204, 146, 185, 0.562);
@@ -122,18 +119,12 @@ background-size: cover;
 	background:linear-gradient(to bottom, rgba(204, 146, 185, 0.562) 5%, #52324777 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(204, 146, 185, 0.562)', endColorstr='#52324777',GradientType=0);
 	background-color:rgba(204, 146, 185, 0.562);
-	// -moz-border-radius:6px;
-	// -webkit-border-radius:6px;
-	//border-radius:6px;
-	//border:1px solid rgba(204, 146, 185, 0.562);
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
 	font-size:2rem;
 	font-weight:bold;
-    // float: right;
-   
 	text-decoration:none;
     text-shadow:0px 1px 0px rgba(204, 146, 185, 0.562);
     padding:1rem 2.5rem;
@@ -154,79 +145,67 @@ body{
      text-align: center;
    &:after{
        content:'';
-      // display: block;
        opacity:0.6;
        position: absolute;
        top:0;
        left:0;
-background-image: url(./header.jpeg);
-   width: 100vw;
-   height: 100vh;
-   margin:0 auto;
-   text-align: center;
-   z-index:-1;
-   }
-
+        background-image: url(./header.jpeg);
+        width: 100vw;
+        height: 100vh;
+        margin:0 auto;
+        text-align: center;
+        z-index:-1;
+    }
 }
 
 .navigation{
-   // display: inline-block;
     ul{
-         // display: inline-block;
- list-style: none;
- font-size: 3rem;
-margin: 0 auto;
-li{
-   // display: inline-block;  
-//    margin: 1rem 5rem;
-//   margin: 1rem auto;
-// display: block;
-//width:35rem;
-
-}
-
- a{
-@include theButton();
- &:hover{
-@include theButtonH();
- }
- &:active{
-     position:relative;
- }
- }
+        list-style: none;
+        font-size: 3rem;
+        margin: 0 auto;
+            a{
+            @include theButton();
+            &:hover{
+            @include theButtonH();
+            }
+            &:active{
+                position:relative;
+            }
+        }
     }
 }
 .addNew{
-  @include Background();
-height: 100vh;
- overflow: scroll;
-   
+    @include Background();
+    height: 100vh;
+    overflow: scroll;
      .addForm{
-         @include breakpoint(s){
-  width:95vw;
-   margin: 0 auto;
+        @include breakpoint(s){
+            width:95vw;
+            margin: 0 auto;
          }
          @include breakpoint(m){
-             width:40vw;
-              margin: 7rem auto;
+            width:40vw;
+            margin: 7rem auto;
          }
           @include breakpoint(l){
-             width:28vw; 
-              margin: 10rem auto; 
+            width:28vw; 
+            margin: 10rem auto; 
          }
-         background-color: rgba(228, 222, 222, 0.171);
+         background-color: rgba(119, 95, 143, 0.336);
          height: 60vh;
          font-size:2.5rem;
          font-weight: bold;
-       
+         color:white;
+         text-align: center;
+         overflow: scroll;
+        border-radius: 4rem;
+        text-transform: uppercase;
          button{
              @include theButton();
-             
-              &:hover{
-@include theButtonH();
- }
+                &:hover{
+                    @include theButtonH();
+                }
          }
- 
      }
 }
 .name,
@@ -234,21 +213,10 @@ height: 100vh;
 .amount,
 .directions{
    @include myInput();
-    // padding: 10rem 0;
+   margin:auto;
     display: block;
 }
-// .amount{
-//     right:0;
-// }
-.ElementForm{
 
-  // margin:2rem;
-  text-align: left;
- 
-}
-
-
-//end of the Add Form
 .one{
    text-align: center;
 }
@@ -256,46 +224,40 @@ height: 100vh;
      @include myInput();
         
 }
-.FindMore
-{
-@include Background();
-height: 100%;
- overflow: scroll;
+.FindMore{
+    @include Background();
+    height: 100%;
+    overflow: scroll;
 }
 .FindNew{
     @include myInput(); 
 }
 .FindButton{
-@include theButton();
-             	display:inline !important;
-              &:hover{
-@include theButtonH();
-              }
-}
+    @include theButton();
+    display:inline !important;
+    &:hover{
+        @include theButtonH();
+        }
+    }
 .ShowMine{
-@include Background();
-height: 100vh;
- overflow: scroll;
+    @include Background();
+    height: 100vh;
+    overflow: scroll;
 }
-
 .MyRecipes{
-     @include breakpoint(s){
-
-  grid-template-columns: auto;
-
-     }
-     @include breakpoint(m){
-         grid-template-columns: auto auto;
-     }
-      @include breakpoint(l){
-  grid-template-columns: auto auto auto;
-      }
     margin-top: 3rem;
     display: grid;
-
- grid-gap: 0.5rem;
-  padding:1rem;
- 
+    grid-gap: 0.5rem;
+    padding:1rem;
+    @include breakpoint(s){
+        grid-template-columns: auto;
+     }
+     @include breakpoint(m){
+        grid-template-columns: auto auto;
+     }
+      @include breakpoint(l){
+        grid-template-columns: auto auto auto;
+            }
 }
 .RecipeOne{
     @include breakpoint(s){
@@ -305,34 +267,31 @@ height: 100vh;
         width:45vw;
     }
    @include breakpoint(l){
-  width: 33vw;
+    width: 33vw;
    }
-  background-color: rgba(175, 166, 166, 0.411);
-   opacity: 1;
-
-  height:20vh;
-  overflow: scroll;
-  position: relative;
+    background-color: rgba(175, 166, 166, 0.411);
+    opacity: 1;
+    height:20vh;
+    overflow: scroll;
+    position: relative;
   h1{
-        text-transform: uppercase;
+    text-transform: uppercase;
     font-weight: 900;
     font-size:2rem;
-
-   color: rgba(51, 34, 45, 0.945);
+    color: rgba(51, 34, 45, 0.945);
   }
   .delete{
       @include theButton();
-                 padding:0.2rem 0.6rem;
-             position: absolute;
-             bottom:0;
-             right:0;
-              &:hover{
-@include theButtonH();
+        padding:0.2rem 0.6rem;
+        position: absolute;
+        bottom:0;
+        right:0;
+        &:hover{
+            @include theButtonH();
               }
-  }
+        }
 }
 
-//show all
 .FindMore
 {
 @include Background();
@@ -377,73 +336,53 @@ img{
     position: absolute;
     top:0;
     left:0;
-  
-   
 }
 h3{
-  top:2rem;
-  right: 2rem;
+    top:2rem;
+    right: 2rem;
     text-transform: uppercase;
     font-weight: 900;
     font-size:2rem;
-   position: absolute;
-   color: rgb(100, 7, 7);
+    position: absolute;
+    color: rgb(100, 7, 7);
 }
   .RecipeLink{
       @include theButton();
-                 padding:0.2rem 0.6rem;
-             position: absolute;
-             bottom:1rem;
-             right:0; 
+            padding:0.2rem 0.6rem;
+            position: absolute;
+            bottom:1rem;
+            right:0; 
   }
 }
 
 .navigation{
-    ul
-    {
-    li
-    {
-
-		@include breakpoint(s) {
-			  margin: 1rem auto;
-display: block;	
+    ul{
+        li{
+            @include breakpoint(s) {
+			margin: 1rem auto;
+            display: block;	
 		}
-		@include breakpoint(m) {
-			  margin: 1rem auto;
-display: block;
+		    @include breakpoint(m) {
+			margin: 1rem auto;
+            display: block;
 		}
-		@include breakpoint(l) {
+		    @include breakpoint(l) {
             display: inline-block;
             margin: 1rem 5rem;
         }
     }}
 }
-// .mainTitle{
-//       font-family: $myFont;
-//       letter-spacing: 1rem;
-//     //  text-shadow: 0.5rem 0.5rem rgba(56, 54, 54, 0.342);
-//    font-size: 8rem;
 
-//   }
-//  .quotes{
-//        font-family: $myFont;  
-//        font-size: 6rem;
-//        text-align: right;
-//        margin-right: 9rem;
-//        margin-top: 9rem;
-//        font-weight: bold;
-//   }
   .quotes{
        @include breakpoint(s){
-           font-family: $myFont;  
-       font-size: 6rem;
-      // text-align: right;
-      text-align: center;
-       margin-top: 1rem;
+        font-family: $myFont;  
+        font-size: 6rem;
+        text-align: center;
+        margin-top: 1rem;
        font-weight: bold;
        }
        @include breakpoint(l){
-           font-family: $myFont;  
+       font-family: $myFont;  
        font-size: 6rem;
        text-align: right;
        margin-right: 9rem;
@@ -454,15 +393,14 @@ display: block;
   .NavBar{
         @include breakpoint(s){
             width: 100vw;
-background-color: rgba(51, 34, 45, 0.034);
-height: 4rem;
+            background-color: rgba(51, 34, 45, 0.034);
+            height: 4rem;
    ul{
- list-style: none;
- font-size: 1rem;
- float: right;
+    list-style: none;
+    font-size: 1rem;
+    float: right;
 li{
     display: inline-block;  
-    // margin: 0 0.2rem; 
 }
  a{
 @include NavElement();
@@ -473,59 +411,62 @@ font-size: 1.5rem;
  }
  &:active{
      position:relative;
- }
+    }
  }
     } 
 
         }
          @include breakpoint(l){
-width: 100vw;
-background-color: rgba(51, 34, 45, 0.185);
-height: 7rem;
+            width: 100vw;
+            background-color: rgba(51, 34, 45, 0.185);
+            height: 7rem;
    ul{
- list-style: none;
- font-size: 2rem;
- float: right;
+    list-style: none;
+    font-size: 2rem;
+    float: right;
 li{
     display: inline-block;  
-     margin: 1rem 0rem; 
+    margin: 1rem 0rem; 
 }
  a{
-@include NavElement();
-padding: 1rem 1rem;
+    @include NavElement();
+    padding: 1rem 1rem;
  &:hover{
-@include theButtonH();
+    @include theButtonH();
  }
  &:active{
-     position:relative;
- }
- }
+    position:relative;
+            }
+        }
     } 
 }
-         }
+}
 
 .mainTitle {
      @include breakpoint(s){
- font-family: $myFont;
-      letter-spacing: .2rem;
-    //  text-shadow: 0.5rem 0.5rem rgba(56, 54, 54, 0.342);
-   font-size: 5rem;
+    font-family: $myFont;
+    letter-spacing: .2rem;
+    font-size: 5rem;
     }
   
      @include breakpoint(m){
-           font-family: $myFont;
-      letter-spacing: 1rem;
-    //  text-shadow: 0.5rem 0.5rem rgba(56, 54, 54, 0.342);
-   font-size: 8rem;
+    font-family: $myFont;
+    letter-spacing: 1rem;
+    font-size: 8rem;
     }
     h1{
     @include breakpoint(s){
-padding-top:2rem;
+    padding-top:2rem;
     }
   
      @include breakpoint(m){
-           padding-top:15rem;
-    margin-bottom:1rem;
+        padding-top:15rem;
+        margin-bottom:1rem;
     }
 }
+}
+.error{
+    color:red;
+    font-size:1.5rem;
+    margin:-0.5rem 0 0 2rem;
 }

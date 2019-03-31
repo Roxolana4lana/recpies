@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import NavBar from './NavBar'
+import posed from 'react-pose';
 
+const MyForn = posed.div({
+    exit: {
+        x: '-300%'
+    },
+    enter: {
+        x: '0'
+    }
+});
 
 class AddRecip extends Component {
     state = {
         title: '',
         components: [{ name: '', amount: '' }],
-        directions: ''
+        directions: '',
+        titleError:'',
+        directionsError: ''
     }
 
     handleAdd = e => {
@@ -35,7 +46,23 @@ class AddRecip extends Component {
         this.state.components.splice(index, 1)
         this.setState({ components: this.state.components })
     }
-
+    Validate = () => {
+        let titleError = ''
+        let directionsError = ''
+        if (this.state.title === '') {
+            titleError = 'can not be empty'
+        }
+        if (this.state.directions === '') {
+            directionsError = 'can not be empty'
+        }
+        if (titleError || directionsError) {
+            this.setState({
+                titleError, directionsError
+            })
+            return false
+        }
+        return true
+    }
     handleSubmit = e => {
         e.preventDefault()
         const obj = {
@@ -43,26 +70,28 @@ class AddRecip extends Component {
             components: this.state.components,
             directions: this.state.directions
         }
-
+        if (this.Validate()) {
         axios.post(`http://127.0.0.1:8000/recipes/`, obj)
+       
             .then(res =>
                 console.log(res.data)
             )
+            .then(this.props.history.push("/seemine"))
             .catch((err) => {
                 console.log(err)
             })
-            this.setState({
-                title: '',
-                components: [{ name: '', amount: '' }],
-                directions: ''
-            })
+           
+        } else{
+            console.log('not valid')
         }
+    }
 
     render() {
         return (
             <div className='addNew'>
                 <NavBar/>
-                <form onSubmit={this.handleSubmit} className='addForm'>
+                <MyForn className='addForm' initialPose="exit" pose="enter">
+                <form onSubmit={this.handleSubmit} >
                     <div className='ElementForm'>
                         <label> The title </label>
                         <input
@@ -71,6 +100,7 @@ class AddRecip extends Component {
                             onChange={this.handleChange}
                             name='title'
                             className='title'/>
+                        <p className='error'>{this.state.titleError}</p>  
                     </div>
                     <div className='ElementForm'>
                         <label > <h4>Ingredients:</h4> </label> 
@@ -101,8 +131,8 @@ class AddRecip extends Component {
                                             id={index}
                                             data-id={index}/>
                                 
-                                        <button className='one' type='button' onClick={() => this.handleRemove(index)}>X</button>
-                                        <button type='button' onClick={(e) => { this.handleAdd(e) }}>Add</button>
+                                        <button className='one' type='button' onClick={() => this.handleRemove(index)} style={{ marginTop: '1rem' }}>X</button>
+                                        <button type='button' onClick={(e) => { this.handleAdd(e) }} style={{ marginTop: '1rem' }}>Add</button>
                                     </div>
                                 </span> 
                             )
@@ -117,9 +147,11 @@ class AddRecip extends Component {
                             onChange={this.handleChange}
                             name='directions'
                             className='directions'/>
+                        <p className='error'>{this.state.directionsError}</p>  
                     </div>
-                    <button style={{float:'left'}}>Save</button>
-                </form>
+                    <button style={{ marginTop:'1rem'}}>Save</button>
+               </form>
+                    </MyForn>
             </div>
         )
     }
